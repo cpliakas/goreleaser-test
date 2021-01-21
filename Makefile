@@ -1,5 +1,9 @@
 .PHONY: dist
 dist:
+	goreleaser
+
+.PHONY: dist-local
+dist-local:
 	goreleaser --snapshot --skip-publish --rm-dist
 
 .PHONY: run
