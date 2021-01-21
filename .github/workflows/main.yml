@@ -1,0 +1,15 @@
+name: Release
+
+on:
+  create:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: GoReleaser Action
+        uses: goreleaser/goreleaser-action@v2.4.1
