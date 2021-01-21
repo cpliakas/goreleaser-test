@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// Version is the application version.
+var Version string
+
 func main() {
-	fmt.Println("Testing my release")
+	fmt.Println(Version)
 }
