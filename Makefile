@@ -1,6 +1,6 @@
 .PHONY: dist
 dist:
-	goreleaser
+	goreleaser --rm-dist
 
 .PHONY: dist-local
 dist-local:
