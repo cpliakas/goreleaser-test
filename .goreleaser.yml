@@ -1,12 +1,6 @@
-# This is an example .goreleaser.yml file with some sane defaults.
-# Make sure to check the documentation at http://goreleaser.com
 before:
-
   hooks:
-    # You may remove this if you don't use go modules.
-    # - go mod download
-    # you may remove this if you don't need go generate
-    # - go generate ./...
+    - go mod download
 
 builds:
   - env:
@@ -43,8 +37,8 @@ changelog:
 
 brews:
   -
-    homepage: "https://github.com/cpliakas/goreleaser-test"
-    description: "Test creating a Homebrew tap with goreleaser."
+    homepage: https://github.com/cpliakas/goreleaser-test
+    description: Test creating a Homebrew tap with goreleaser.
     folder: Formula
     license: "MIT"
 
@@ -56,3 +50,14 @@ brews:
       name: cpliakas
       email: cpliakas@gmail.com
 
+nfpms:
+  - file_name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+    homepage: https://github.com/cpliakas/goreleaser-test
+    description: Test creating a Homebrew tap with goreleaser.
+    maintainer: Chris Pliakas <opensource@chrispliakas.com>
+    license: MIT
+    vendor: cpliakas
+    formats:
+    - apk
+    - deb
+    - rpm
