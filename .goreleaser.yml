@@ -58,6 +58,5 @@ nfpms:
     license: MIT
     vendor: cpliakas
     formats:
-    - apk
     - deb
     - rpm
