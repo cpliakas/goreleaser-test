@@ -4,17 +4,17 @@ VERSION=$(shell git describe --tags)
 build:
 	go build -ldflags "-X main.Version=$(VERSION)"
 
+.PHONY: install
+install:
+	go mod download
+
+.PHONY: test
+test:
+	go test -v ./...
+
 .PHONY: dist
 dist:
-	goreleaser --rm-dist
-
-.PHONY: dist-local
-dist-local:
 	goreleaser --snapshot --skip-publish --rm-dist
-
-.PHONY: run
-run:
-	./dist/goreleaser-test_darwin_amd64/goreleaser-test
 
 .PHONY: tidy
 tidy:
@@ -23,3 +23,4 @@ tidy:
 .PHONY: clean
 clean:
 	rm -rf ./dist
+	rm -f ./goreeleaser-test
