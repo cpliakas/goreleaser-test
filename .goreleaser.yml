@@ -1,6 +1,6 @@
 before:
   hooks:
-    # - go mod download
+    - go mod download
 
 builds:
   - env:
@@ -26,7 +26,7 @@ checksum:
   name_template: 'checksums.txt'
 
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  name_template: "{{ .Tag }}-{{ .ShortCommit }}"
 
 changelog:
   sort: asc
